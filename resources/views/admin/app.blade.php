@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ asset('css/admin/bootstrap.min.css') }}">
+    <link href="{{ asset('css/admin/circular-std/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/fontawesome/css/fontawesome-all.css') }}">
+    <title>{{ env('APP_NAME') }} - {{ $title }}</title>
+    @stack('css')
+</head>
+
+<body>
+    <div class="dashboard-main-wrapper">
+        @include('admin.include.header')
+        @include('admin.include.sidebar')
+        <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h3 class="mb-2">Sales Dashboard Template </h3>
+                            <p class="pageheader-text">Lorem ipsum dolor sit ametllam fermentum ipsum eu porta
+                                consectetur adipiscing elit.Nullam vehicula nulla ut egestas rhoncus.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">Sales Dashboard Template
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                @yield('content')
+            </div>
+            @include('admin.include.footer')
+        </div>
+    </div>
+    <script src="{{ asset('js/admin/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/admin/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('js/admin/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ asset('js/admin/main-js.js') }}"></script>
+    @stack('js')
+</body>
+
+</html>
