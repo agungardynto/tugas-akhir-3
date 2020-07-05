@@ -24,28 +24,28 @@
                         <a href="#" class="mr-3">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-uppercase booking-now">booking now</a>
+                        <a href="{{ route('rooms') }}" class="text-uppercase booking-now mr-0">booking now</a>
+                        @guest
+                        <a href="{{ route('login') }}" class="text-uppercase booking-now bg-primary mx-0">login</a>
+                        @else
                         <div class="navbar-nav ml-3">
                             <a class="nav-link dropdown-toggle" href="#drop" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ asset('img/static/flags/united-kingdom.png') }}" alt="UnitedKingdom">
-                                <span>UK</span>
+                                <img src="{{ Storage::url(Auth::user()->foto) }}" alt="usr_img">
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">
-                                    <img src="/img/flags/germany.png" alt="germany">
-                                    <span>GM</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <img src="/img/flags/indonesia.png" alt="Indonesia">
-                                    <span>ID</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <img src="/img/flags/new-zealand.png" alt="NewZeland">
-                                    <span>NL</span>
-                                </a>
+                                <a class="dropdown-item" href="@if (Auth::user()->role === '1')
+                                {{ url('admin') }}
+                                @else
+                                {{ url('user') }}
+                                @endif"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-power-off mr-2"></i>{{ __('Logout') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
+                        @endguest
                     </div>
                 </div>
             </div>
@@ -63,9 +63,9 @@
                     <a class="nav-item nav-link active" href="{{ route('home') }}">Home</a>
                     <a class="nav-item nav-link" href="{{ route('rooms') }}">Rooms</a>
                     <a class="nav-item nav-link" href="#">About Us</a>
-                    <a class="nav-item nav-link" href="#">Pages</a>
                     <a class="nav-item nav-link" href="#">News</a>
                     <a class="nav-item nav-link" href="{{ route('contact') }}">Contact</a>
+                    <a class="nav-item nav-link" href="#">FAQ</a>
                 </div>
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="#">

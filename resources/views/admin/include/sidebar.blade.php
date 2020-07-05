@@ -12,7 +12,7 @@
                         Menu
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link @yield('dashboard')" href="{{ route('dashboard') }}"><i class="fa fa-fw fa-user-circle"></i>Dashboard</a>
+                        <a class="nav-link @yield('dashboard')" href="{{ route('dashboard_admin') }}"><i class="fa fa-fw fa-user-circle"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @yield('blog')" href="{{ route('blog.index') }}"><i class="fas fa-fw fas fa-newspaper"></i>Blog</a>

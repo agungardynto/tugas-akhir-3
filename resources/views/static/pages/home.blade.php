@@ -28,24 +28,24 @@
                             <h3 class="text-capitalize text-center mb-5">booking your hotel</h3>
                             <form>
                                 <div class="form-group">
-                                    <label for="checkin">Check In:</label>
-                                    <input type="date" class="form-control" id="checkin">
+                                    <label for="checkin">Check In</label>
+                                    <input type="date" class="form-control form-control-sm" id="checkin">
                                 </div>
                                 <div class="form-group">
-                                    <label for="checkout">Check Out:</label>
-                                    <input type="date" class="form-control" id="checkout">
+                                    <label for="checkout">Check Out</label>
+                                    <input type="date" class="form-control form-control-sm" id="checkout">
                                 </div>
                                 <div class="form-group">
-                                    <label>Guests:</label>
-                                    <select class="form-control">
+                                    <label>Guests</label>
+                                    <select class="custom-select custom-select-sm">
                                         <option class="text-uppercase">2 adults</option>
                                         <option class="text-uppercase">3 adults</option>
                                         <option class="text-uppercase">4 adults</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Room:</label>
-                                    <select class="form-control">
+                                    <label>Room</label>
+                                    <select class="custom-select custom-select-sm">
                                         <option class="text-uppercase">1 room</option>
                                         <option class="text-uppercase">2 room</option>
                                         <option class="text-uppercase">3 room</option>
@@ -150,30 +150,32 @@
 </section>
 <section id="recommended-rooms" class="mt-5">
     <div class="container-fluid">
+        @foreach ($room as $rooms)
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mt-3">
             <div class="rooms">
+                <img src="{{ Storage::url($rooms->thumbnail) }}" alt="room-{{ $rooms->id }}">
                 <div class="room-detail">
                     <div class="room-title">
-                        <a href="#">Double Room</a>
-                        <h6>&dollar; 199<sub>/per-Night</sub></h6>
+                        <a href="#">{{ $rooms->title }}</a>
+                        <h6>Rp. {{ number_format($rooms->budget, 0, ',', '.') }}<sub>/night</sub></h6>
                     </div>
                     <div class="room-body">
                         <table cellpadding="10" cellspacing="10">
                             <tr>
                                 <td>Size:</td>
-                                <td>30 ft</td>
+                                <td>{{ $rooms->size }} m<sup>2</sup></td>
                             </tr>
                             <tr>
                                 <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
+                                <td>{{ $rooms->capacity }}</td>
                             </tr>
                             <tr>
                                 <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
+                                <td>
+                                    @foreach ($rooms->service as $services)
+                                    {{ $services->service }},
+                                    @endforeach
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -181,99 +183,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mt-3">
-            <div class="rooms">
-                <div class="room-detail">
-                    <div class="room-title">
-                        <a href="#">Premium King</a>
-                        <h6>&dollar; 159<sub>/per-Night</sub></h6>
-                    </div>
-                    <div class="room-body">
-                        <table cellpadding="10" cellspacing="10">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <a href="#" class="btn more-detail rounded-0 text-uppercase">more detail</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mt-3">
-            <div class="rooms">
-                <div class="room-detail">
-                    <div class="room-title">
-                        <a href="#">Deluxe Room</a>
-                        <h6>&dollar; 198<sub>/per-Night</sub></h6>
-                    </div>
-                    <div class="room-body">
-                        <table cellpadding="10" cellspacing="10">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <a href="#" class="btn more-detail rounded-0 text-uppercase">more detail</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mt-3">
-            <div class="rooms">
-                <div class="room-detail">
-                    <div class="room-title">
-                        <a href="#">Family Room</a>
-                        <h6>&dollar; 299<sub>/per-Night</sub></h6>
-                    </div>
-                    <div class="room-body">
-                        <table cellpadding="10" cellspacing="10">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <a href="#" class="btn more-detail rounded-0 text-uppercase">more detail</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
 <section id="testimonials" class="mt-100">

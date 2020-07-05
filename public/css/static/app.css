@@ -301,7 +301,14 @@ body {
     overflow: hidden;
 }
 
-#recommended-rooms .col-sm-12:first-child .rooms {
+#recommended-rooms .col-sm-12 .rooms img {
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+/* #recommended-rooms .col-sm-12:first-child .rooms {
     height: 500px;
     background-image: url('/img/static/rooms/christian-mackie-cc0Gg3BegjE-unsplash.jpg');
     background-size: cover;
@@ -326,7 +333,7 @@ body {
     background-image: url('/img/static/rooms/roberto-nickson-rEJxpBskj3Q-unsplash.jpg');
     background-size: cover;
     background-position: center;
-}
+} */
 
 .room-detail {
     position: absolute;

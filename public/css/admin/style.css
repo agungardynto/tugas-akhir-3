@@ -1790,7 +1790,7 @@ Container / Wrapper
 }
 
 .dashboard-content {
-    padding: 30px 30px 60px 30px;
+    padding: 30px 30px 0px 30px;
 }
 
 
@@ -1906,7 +1906,8 @@ Pageheader
     color: #71748d;
     background-color: #fff;
     width: 100%;
-    /*position: absolute; bottom: 0;*/
+    position: absolute;
+    /* bottom: 0; */
 }
 
 .footer-links {}
@@ -7030,3 +7031,47 @@ Media Query
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}
+
+#choose-foto {
+    display: none;
+}
+
+.dashboard-user-profile {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.dashboard-user-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dashboard-user-profile:hover .choose-now {
+    transform: scale(1);
+    transition: transform .3s ease;
+}
+
+.choose-now {
+    position: absolute;
+    border-radius: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(0);
+    transition: transform .3s ease;
+}
+
+.choose-now label {
+    color: #ffffff;
+}
+
+.choose-now label:hover {
+    cursor: pointer;
+}

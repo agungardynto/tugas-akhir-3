@@ -15,8 +15,8 @@
 <script>
     $(document).ready(function () {
         bsCustomFileInput.init();
-        $(".tags").select2({
-            placeholder: "Select a tag"
+        $(".services").select2({
+            placeholder: "Select a service for room"
         });
     });
 </script>
@@ -37,34 +37,58 @@
 
                     <div class="form-group">
                         <label for="title">Room Title</label>
-                        <input id="title" type="text" name="title" placeholder="Enter Blog Title" value="{{ old('title') }}" autocomplete="off" class="form-control @error('title') is-invalid @enderror">
+                        <input id="title" type="text" name="title" placeholder="Enter Room Title" value="{{ old('title') }}" autocomplete="off" class="form-control @error('title') is-invalid @enderror">
                     </div>
-                    <div class="form-group">
-                        <label for="post">Blog Posts</label>
-                        <textarea name="post" id="post" cols="30" rows="10" class="form-control @error('post') is-invalid @enderror"
-                            placeholder="Enter Blog Post">{{ old('post') }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <select class="tags js-states form-control" name="tag[]" multiple="multiple">
-                            {{-- @foreach ($tag as $tags)
-                            <option value="{{ $tags->id }}">{{ $tags->tag }}</option>
-                            @endforeach --}}
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-secondary border-secondary">Image Thumbnail</span>
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="size">Size Room</label>
+                                <input id="size" type="text" name="size" placeholder="Enter Room size" value="{{ old('size') }}" autocomplete="off" class="form-control @error('size') is-invalid @enderror">
+                            </div>
                         </div>
-                        <div class="custom-file">
-                            <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
-                            <label class="custom-file-label" for="thumbnail">Choose file</label>
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="capacity">Capacity Room</label>
+                                <input id="capacity" type="text" name="capacity" placeholder="Enter Room capacity" value="{{ old('capacity') }}" autocomplete="off" class="form-control @error('capacity') is-invalid @enderror">
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="service">Select Service</label>
+                                <select class="services js-states form-control" id="service" name="service[]" multiple="multiple">
+                                    @foreach ($service as $services)
+                                    <option value="{{ $services->id }}">{{ $services->service }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-primary border-primary">Indonesia Rupiah (IDR)</span>
+                                </div>
+                                <input type="text" name="budget" class="form-control" placeholder="Budget">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-secondary border-secondary">Image Thumbnail</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
+                                    <label class="custom-file-label" for="thumbnail">Choose file</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12 pl-0">
                             <p class="text-right">
                                 <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                <a href="{{ route('blog.index') }}" class="btn btn-space btn-secondary">Cancel</a>
+                                <a href="{{ route('room.index') }}" class="btn btn-space btn-secondary">Cancel</a>
                             </p>
                         </div>
                     </div>

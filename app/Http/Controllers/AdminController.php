@@ -11,8 +11,4 @@ class AdminController extends Controller
             'title' => 'Dashboard'
         ]);
     }
-
-    public function blog() {
-
-    }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\Service;
 use Illuminate\Http\Request;
+use App\Http\Requests\Room as RoomRequest;
 
 class RoomController extends Controller
 {
@@ -15,7 +17,8 @@ class RoomController extends Controller
     public function index()
     {
         return view('admin.pages.room.index', [
-            'title' => 'Room'
+            'title' => 'Room',
+            'room' => Room::all()->sortByDesc('id')
         ]);
     }
 
@@ -27,7 +30,8 @@ class RoomController extends Controller
     public function create()
     {
         return view('admin.pages.room.create', [
-            'title' => 'CreateRoom'
+            'title' => 'CreateRoom',
+            'service' => Service::all()
         ]);
     }
 
@@ -37,9 +41,19 @@ class RoomController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoomRequest $request)
     {
-        //
+        $grt = $request['thumbnail'];
+        $grt = $request->file('thumbnail')->store('assets/room', 'public');
+        $room = Room::create([
+            'title' => $request['title'],
+            'size' => $request['size'],
+            'capacity' => $request['capacity'],
+            'budget' => $request['budget'],
+            'thumbnail' => $grt
+        ]);
+        $room->service()->attach($request->service);
+        return redirect()->route('room.index');
     }
 
     /**

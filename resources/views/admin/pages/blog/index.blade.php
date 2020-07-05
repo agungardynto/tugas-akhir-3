@@ -32,9 +32,9 @@
                             <td>
                                 @foreach ($blog_item->tag as $tags)
                                 <span class="badge @if ($tags->tag == 'Travel Trip')
-                                    {{ 'badge-secondary' }}
+                                'badge-secondary'
                                 @elseif ($tags->tag == 'Event')
-                                    {{ 'badge-primary' }}
+                                'badge-primary'
                                 @endif">{{ $tags->tag }}</span>
                                 @endforeach
                             </td>

@@ -12,181 +12,41 @@
             </div>
         </div>
         <div class="row">
+            @forelse ($room as $rooms)
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
                 <div class="card">
-                    <img src="{{ asset('img/static/rooms/christian-mackie-cc0Gg3BegjE-unsplash.jpg') }}" class="card-img-top rounded-0">
+                    <img src="{{ Storage::url($rooms->thumbnail) }}" class="card-img-top rounded-0" alt="screen-{{ $rooms->id }}">
                     <div class="card-body">
-                        <h5 class="card-title">Premium King Room</h5>
-                        <small class="text-muted">&dollar; 159</small>
+                        <h5 class="card-title">{{ $rooms->title }}</h5>
+                        <small class="text-muted">Rp. {{ number_format($rooms->budget, 2, ',', '.') }}</small>
                         <table cellpadding="10" cellspacing="10" class="my-4">
                             <tr>
                                 <td>Size:</td>
-                                <td>30 ft</td>
+                                <td>{{ $rooms->size }} m<sup>2</sup></td>
                             </tr>
                             <tr>
                                 <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
+                                <td>{{ $rooms->capacity }}</td>
                             </tr>
                             <tr>
                                 <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
+                                <td>
+                                    @foreach ($rooms->service as $services)
+                                    {{ $services->service }},
+                                    @endforeach
+                                </td>
                             </tr>
                         </table>
                         <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
                             detail</a>
                     </div>
                 </div>
+            </div> 
+            @empty
+            <div class="col-12">
+                <h3 class="text-center">Room tidak ditemukan</h3>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div class="card">
-                    <img src="{{ asset('img/static/rooms/grovemade-dS62MvK4CtM-unsplash.jpg') }}" class="card-img-top rounded-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Deluxe Room</h5>
-                        <small class="text-muted">&dollar; 159</small>
-                        <table cellpadding="10" cellspacing="10" class="my-4">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                        <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
-                            detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div class="card">
-                    <img src="{{ asset('img/static/rooms/orlova-maria-8IVsBArxQDA-unsplash.jpg') }}" class="card-img-top rounded-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Double Room</h5>
-                        <small class="text-muted">&dollar; 159</small>
-                        <table cellpadding="10" cellspacing="10" class="my-4">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                        <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
-                            detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div class="card">
-                    <img src="{{ asset('img/static/rooms/roberto-nickson-rEJxpBskj3Q-unsplash.jpg') }}" class="card-img-top rounded-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Luxury Room</h5>
-                        <small class="text-muted">&dollar; 159</small>
-                        <table cellpadding="10" cellspacing="10" class="my-4">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                        <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
-                            detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div class="card">
-                    <img src="{{ asset('img/static/blog-events/claudia-altamimi-dEGNA6jIcBM-unsplash.jpg') }}"
-                        class="card-img-top rounded-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Room With View</h5>
-                        <small class="text-muted">&dollar; 159</small>
-                        <table cellpadding="10" cellspacing="10" class="my-4">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                        <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
-                            detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
-                <div class="card">
-                    <img src="{{ asset('img/static/blog-events/sara-dubler-Koei_7yYtIo-unsplash.jpg') }}" class="card-img-top rounded-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Small View</h5>
-                        <small class="text-muted">&dollar; 159</small>
-                        <table cellpadding="10" cellspacing="10" class="my-4">
-                            <tr>
-                                <td>Size:</td>
-                                <td>30 ft</td>
-                            </tr>
-                            <tr>
-                                <td>Capacity:</td>
-                                <td>Max Persion 5</td>
-                            </tr>
-                            <tr>
-                                <td>Bed:</td>
-                                <td>King Beds</td>
-                            </tr>
-                            <tr>
-                                <td>Services:</td>
-                                <td>Wifi, Television, Bathroom</td>
-                            </tr>
-                        </table>
-                        <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
-                            detail</a>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
         <div class="iteration">
             <a href="#prev">&LeftArrow;</a>
