@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/static/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/static/all.css') }}">
     <title>{{ env('APP_NAME') }}</title>
+    @yield('css')
 </head>
 
 <body>
@@ -19,6 +20,7 @@
     <script src="{{ asset('js/static/bootstrap.js') }}"></script>
     <script src="{{ asset('js/static/app.js') }}"></script>
     <script src="{{ asset('js/static/all.js') }}"></script>
+    @yield('js')
 </body>
 
 </html>

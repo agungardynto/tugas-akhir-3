@@ -26,7 +26,7 @@ class Room extends FormRequest
         return [
             'title' => 'required',
             'size' => 'required|numeric|digits_between:1,2',
-            'capacity' => 'required',
+            'capacity' => 'required|numeric|digits_between:1,1',
             'budget' => 'required|numeric|digits_between:1,8',
             'description' => 'required|min:400',
             'thumbnail' => 'file|image|dimensions:min_width=1920,min_height=1080|max:2048'

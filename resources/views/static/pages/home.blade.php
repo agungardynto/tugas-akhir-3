@@ -15,48 +15,14 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <h1 class="text-capitalize">sona a luxury hotel</h1>
+                    <h1 class="text-capitalize">{{ env('APP_NAME') }} a luxury hotel</h1>
                     <p class="mb-5">Here are the best hotel booking sites, including recommendations for
                         international
                         travel and for
                         finding low-priced hotel rooms.</p>
                     <a href="#" class="text-uppercase">discover now</a>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 fast-book">
-                    <div class="card">
-                        <div class="card-body py-5">
-                            <h3 class="text-capitalize text-center mb-5">booking your hotel</h3>
-                            <form>
-                                <div class="form-group">
-                                    <label for="checkin">Check In</label>
-                                    <input type="date" class="form-control form-control-sm" id="checkin">
-                                </div>
-                                <div class="form-group">
-                                    <label for="checkout">Check Out</label>
-                                    <input type="date" class="form-control form-control-sm" id="checkout">
-                                </div>
-                                <div class="form-group">
-                                    <label>Guests</label>
-                                    <select class="custom-select custom-select-sm">
-                                        <option class="text-uppercase">2 adults</option>
-                                        <option class="text-uppercase">3 adults</option>
-                                        <option class="text-uppercase">4 adults</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Room</label>
-                                    <select class="custom-select custom-select-sm">
-                                        <option class="text-uppercase">1 room</option>
-                                        <option class="text-uppercase">2 room</option>
-                                        <option class="text-uppercase">3 room</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-block mt-3 text-uppercase">check
-                                    availability</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12"></div>
             </div>
         </div>
     </div>
@@ -156,7 +122,7 @@
                 <img src="{{ Storage::url($rooms->thumbnail) }}" alt="room-{{ $rooms->id }}">
                 <div class="room-detail">
                     <div class="room-title">
-                        <a href="#">{{ $rooms->title }}</a>
+                        <a href="{{ action('StaticController@droom', $rooms->slug) }}">{{ $rooms->title }}</a>
                         <h6>Rp. {{ number_format($rooms->budget, 0, ',', '.') }}<sub>/night</sub></h6>
                     </div>
                     <div class="room-body">
@@ -179,7 +145,7 @@
                             </tr>
                         </table>
                     </div>
-                    <a href="#" class="btn more-detail rounded-0 text-uppercase">more detail</a>
+                    <a href="{{ action('StaticController@droom', $rooms->slug) }}" class="btn more-detail rounded-0 text-uppercase">more detail</a>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <a href="#" class="btn more-detail rounded-0 text-uppercase float-right">more
+                        <a href="{{ route('detail_room', $rooms->slug) }}" class="btn more-detail rounded-0 text-uppercase float-right">more
                             detail</a>
                     </div>
                 </div>

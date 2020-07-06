@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3">
-                <a href="/" class="footer-brand">Draumastofa<span>.</span></a>
+                <a href="/" class="footer-brand">{{ env('APP_NAME') }}<span>.</span></a>
                 <p>We inspire and reach millions of travelers across 90 local websites</p>
                 <div class="social-contact">
                     <a href="#" class="mr-3">

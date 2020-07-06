@@ -20,6 +20,7 @@ class CreateBookingTable extends Migration
             $table->date('check_in');
             $table->date('check_out');
             $table->string('guest', 1);
+            $table->string('status', 1);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

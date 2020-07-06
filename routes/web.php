@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'StaticController@home')->name('home');
 Route::get('rooms', 'StaticController@rooms')->name('rooms');
+Route::post('rooms/{slug}', 'StaticController@booking')->name('booking');
+Route::get('rooms/{slug}', 'StaticController@droom')->name('detail_room');
 Route::get('contact', 'StaticController@contact')->name('contact');
 
 Route::group(['middleware' => ['auth', 'checkadm']], function () {
@@ -39,5 +41,5 @@ Route::group(['middleware' => ['auth', 'checkusr']], function () {
 
 Auth::routes();
 
-// Route::get('/test', function(){ return time().date('s'); });
+// Route::get('/test', function(){ echo time(). '<br>' .strtotime(now()); });
 // Route::get('/home', 'HomeController@index')->name('home');

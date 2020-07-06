@@ -52,7 +52,7 @@ class RoomController extends Controller
             'capacity' => $request['capacity'],
             'budget' => $request['budget'],
             'description' => $request['description'],
-            'slug' => Str::of(time().date('s/').$request['title'])->slug('slug'),
+            'slug' => time().date('s-').Str::of($request['title'])->slug('-'),
             'thumbnail' => $grt
         ]);
         $room->service()->attach($request->service);
