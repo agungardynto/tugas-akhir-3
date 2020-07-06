@@ -39,4 +39,5 @@ Route::group(['middleware' => ['auth', 'checkusr']], function () {
 
 Auth::routes();
 
+// Route::get('/test', function(){ return time().date('s'); });
 // Route::get('/home', 'HomeController@index')->name('home');

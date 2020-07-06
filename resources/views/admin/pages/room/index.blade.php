@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <div class="card mb-0">
+        <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h3 class="mb-0">
                     <span class="text-uppercase" style="color: rgb(255, 73, 182)">{{ env('APP_NAME')  }}</span><sup>{{ $title }}</sup>

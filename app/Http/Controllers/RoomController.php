@@ -6,6 +6,7 @@ use App\Room;
 use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Requests\Room as RoomRequest;
+use Illuminate\Support\Str;
 
 class RoomController extends Controller
 {
@@ -50,6 +51,8 @@ class RoomController extends Controller
             'size' => $request['size'],
             'capacity' => $request['capacity'],
             'budget' => $request['budget'],
+            'description' => $request['description'],
+            'slug' => Str::of(time().date('s/').$request['title'])->slug('slug'),
             'thumbnail' => $grt
         ]);
         $room->service()->attach($request->service);

@@ -19,6 +19,8 @@ class CreateRoomsTable extends Migration
             $table->string('size', 1);
             $table->string('capacity', 1);
             $table->integer('budget');
+            $table->text('description');
+            $table->string('slug')->unique();
             $table->string('thumbnail');
             $table->timestamps();
         });
