@@ -64,7 +64,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p class="f-para text-justify">{{ $room->description }}</p>
+                        <p class="f-para text-justify">{!! $room->description !!}</p>
                     </div>
                 </div>
                 <div class="rd-reviews mb-0"></div>

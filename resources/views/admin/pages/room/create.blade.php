@@ -8,16 +8,22 @@
         .custom-file-label {
             box-shadow: none !important;
         }
+        .ck-editor__editable_inline {
+            height: 187px;
+            width: 100%;
+        }
     </style>
 @endpush
 @push('js')
 <script src="{{ asset('js/admin/select2.min.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     $(document).ready(function () {
         bsCustomFileInput.init();
         $(".services").select2({
             placeholder: "Select a service for room"
         });
+        ClassicEditor.create(document.querySelector('#description'));
     });
 </script>
 @endpush
@@ -34,7 +40,7 @@
             <div class="card-body">
                 <form action="{{ route('room.store') }}" id="basicform" method="post" enctype="multipart/form-data">
                     @csrf
-
+                        
                     <div class="form-group">
                         <label for="title">Room Title</label>
                         <input id="title" type="text" name="title" placeholder="Enter Room Title" value="{{ old('title') }}" autocomplete="off" class="form-control @error('title') is-invalid @enderror">
@@ -66,8 +72,9 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label for="post">Description Room</label>
-                                <textarea name="description" id="post" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror" placeholder="Enter Room Description">{{ old('post') }}</textarea>
+                                <label for="description">Description Room</label>
+                                <textarea name="description" id="description">{{ old('description') }}</textarea>
+                                {{-- <textarea name="description" id="post" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror" placeholder="Enter Room Description">{{ old('post') }}</textarea> --}}
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
@@ -83,7 +90,7 @@
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
-                                    <label class="custom-file-label" for="thumbnail">Choose file</label>
+                                    <label class="custom-file-label" for="thumbnail" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Choose file</label>
                                 </div>
                             </div>
                             <div class="form-group" style="margin-top: 85px">
