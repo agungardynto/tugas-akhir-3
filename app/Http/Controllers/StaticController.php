@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Room;
 use App\Contact;
+use App\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,8 @@ class StaticController extends Controller
     public function home() {
         return view('static.pages.home', [
             'room' => Room::orderBy('id', 'desc')->paginate(4),
-            'contact' => $this->contact
+            'contact' => $this->contact,
+            'faq' => Faq::all()
         ]);
     }
 
@@ -62,10 +64,31 @@ class StaticController extends Controller
             'check_in' => $validator['check_in'],
             'check_out' => $validator['check_out'],
             'guest' => $validator['guest'],
+            'code' => rand(00000001, 99999999) + Auth::user()->id,
             'status' => $status,
             'created_at' => date(now()),
             'updated_at' => date(now())
         ]);
         return redirect()->route('detail_room', $slug);
+    }
+
+    public function send_message(Request $request) {
+        $validator = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+        DB::table('feeds')->insert([
+            'name' => $validator['name'],
+            'email' => $validator['email'],
+            'message' => $validator['message'],
+            'created_at' => date(now()),
+            'updated_at' => date(now())
+        ]);
+        return redirect()->route('contact');
+    }
+
+    public function faq() {
+
     }
 }

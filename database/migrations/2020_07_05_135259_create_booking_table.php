@@ -20,6 +20,7 @@ class CreateBookingTable extends Migration
             $table->date('check_in');
             $table->date('check_out');
             $table->string('guest', 1);
+            $table->bigInteger('code')->unique();
             $table->string('status', 1);
             $table->timestamps();
 

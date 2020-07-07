@@ -32,6 +32,7 @@
                                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail-{{ $rooms->id }}">
                                     <i class="fas fa-eye"></i>
                                 </button>
+                            </th>
                             <td>{{ $rooms->title }}</td>
                             <td>{{ $rooms->size }} m<sup>2</sup></td>
                             <td>{{ $rooms->capacity }}</td>

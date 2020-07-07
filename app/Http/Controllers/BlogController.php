@@ -19,7 +19,7 @@ class BlogController extends Controller
     {
         return view('admin.pages.blog.index', [
             'title' => 'Blog',
-            'data_blog' => Blog::all()
+            'data_blog' => Blog::all()->sortByDesc('id')
         ]);
     }
 

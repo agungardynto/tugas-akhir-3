@@ -13,7 +13,7 @@
     </div>
     <div class="tagline">
         <div class="container">
-            <div class="row justify-content-between">
+            <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <h1 class="text-capitalize">{{ env('APP_NAME') }} a luxury hotel</h1>
                     <p class="mb-5">Here are the best hotel booking sites, including recommendations for
@@ -22,7 +22,6 @@
                         finding low-priced hotel rooms.</p>
                     <a href="#" class="text-uppercase">discover now</a>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12"></div>
             </div>
         </div>
     </div>
@@ -292,6 +291,41 @@
                     <span class="text-uppercase">travel</span>
                     <a href="#" class="text-capitalize">traveling to barcelona</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="faq" class="mt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h3 class="mb-5">Frequently Asked Question</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                @foreach ($faq as $faqs)    
+                <div class="accrodion-regular">
+                    <div id="accordion">
+                        <div class="card mb-2">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-{{ $faqs->id }}" aria-expanded="false">
+                                        <span class="fas fa-angle-down mr-3"></span>{{ $faqs->question }}
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse-{{ $faqs->id }}" class="collapse">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        {{ $faqs->answer }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

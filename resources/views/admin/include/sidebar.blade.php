@@ -14,23 +14,20 @@
                     <li class="nav-item ">
                         <a class="nav-link @yield('dashboard')" href="{{ route('dashboard_admin') }}"><i class="fa fa-fw fa-user-circle"></i>Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link @yield('blog')" href="{{ route('blog.index') }}"><i class="fas fa-fw fas fa-newspaper"></i>Blog</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#"><i class="fa fa-fw fas fas fa-phone"></i>Contact</a>
-                    </li>
                     <li class="nav-divider">
                         Features
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link @yield('room')" href="{{ route('room.index') }}"><i class="fa fa-fw fas fa-child"></i>Rooms</a>
+                        <a class="nav-link @yield('room')" href="{{ route('room.index') }}"><i class="fas fa-fw fa-rocket"></i>Rooms</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-fw fa-columns"></i>Icons</a>
+                        <a class="nav-link @yield('blog')" href="{{ route('blog.index') }}"><i class="fas fa-fw fa-newspaper"></i>Blog & Event</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-fw fa-map-marker-alt"></i>Maps</a>
+                    <li class="nav-item ">
+                        <a class="nav-link @yield('contact')" href="{{ route('contact.index') }}"><i class="fas fa-fw fa-phone"></i>Contact</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link @yield('faq')" href="{{ route('faq.index') }}"><i class="fas fa-fw fa-flask"></i>Frequently Asked Question</a>
                     </li>
                 </ul>
             </div>

@@ -1790,6 +1790,7 @@ Container / Wrapper
 }
 
 .dashboard-content {
+    min-height: 82vh;
     padding: 30px 30px 0px 30px;
 }
 
@@ -7074,4 +7075,11 @@ Media Query
 
 .choose-now label:hover {
     cursor: pointer;
+}
+
+td {
+    max-width: 100px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
 }

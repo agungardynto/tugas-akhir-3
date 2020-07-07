@@ -18,6 +18,8 @@ Route::get('rooms', 'StaticController@rooms')->name('rooms');
 Route::post('rooms/{slug}', 'StaticController@booking')->name('booking');
 Route::get('rooms/{slug}', 'StaticController@droom')->name('detail_room');
 Route::get('contact', 'StaticController@contact')->name('contact');
+Route::post('contact', 'StaticController@send_message');
+Route::post('faq', 'StaticController@faq');
 
 Route::group(['middleware' => ['auth', 'checkadm']], function () {
     Route::group(['prefix' => 'admin'], function () {
@@ -27,6 +29,8 @@ Route::group(['middleware' => ['auth', 'checkadm']], function () {
         Route::resource('tag', 'TagController');
         Route::resource('room', 'RoomController');
         Route::resource('service', 'ServiceController');
+        Route::resource('contact', 'ContactController');
+        Route::resource('faq', 'FaqController');
     });    
 });
 

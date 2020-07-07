@@ -26,18 +26,20 @@
                 </table>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mt-3">
-                <form>
+                <form action="{{ action('StaticController@send_message') }}" method="post">
+                    @csrf
+
                     <div class="row">
                         <div class="col pr-0">
-                            <input type="text" class="form-control" placeholder="Full Name">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <textarea class="form-control" rows="7" placeholder="Message"></textarea>
+                            <textarea class="form-control" name="message" rows="7" placeholder="Message"></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">

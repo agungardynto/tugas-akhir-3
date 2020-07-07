@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
+use App\Faq;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ContactController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.contact.index', [
-            'title' => 'Contact',
-            'contact' => Contact::all(),
-            'feed' => DB::table('feeds')->orderByDesc('id')->get()
-        ]);
+        //
     }
 
     /**
@@ -46,10 +41,10 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Faq $faq)
     {
         //
     }
@@ -57,10 +52,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Faq $faq)
     {
         //
     }
@@ -69,10 +64,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contact  $contact
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, Faq $faq)
     {
         //
     }
@@ -80,10 +75,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Faq $faq)
     {
         //
     }

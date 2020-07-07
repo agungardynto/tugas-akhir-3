@@ -58,19 +58,13 @@
                 aria-controls="markup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="markup">
+            <div class="collapse navbar-collapse justify-content-end mr-2" id="markup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="{{ route('home') }}">Home</a>
                     <a class="nav-item nav-link" href="{{ route('rooms') }}">Rooms</a>
-                    <a class="nav-item nav-link" href="#">About Us</a>
-                    <a class="nav-item nav-link" href="#">News</a>
+                    <a class="nav-item nav-link" href="#">Blog & Event</a>
                     <a class="nav-item nav-link" href="{{ route('contact') }}">Contact</a>
                     <a class="nav-item nav-link" href="#">FAQ</a>
-                </div>
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
                 </div>
             </div>
         </div>
