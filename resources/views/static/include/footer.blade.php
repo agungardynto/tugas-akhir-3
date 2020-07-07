@@ -24,7 +24,7 @@
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3">
                 <h6 class="text-uppercase">contact us</h6>
-                <p>(12) 345 67890 info.colorlib@gmail.com 856 Cordia Extension Apt. 356, Lake, United State</p>
+                <p>{{ $contact->phone }} {{ $contact->email }} {{ $contact->address }}</p>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3">
                 <h6 class="text-uppercase">new latest</h6>

@@ -74,7 +74,9 @@
                             <div class="form-group">
                                 <label for="description">Description Room</label>
                                 <textarea name="description" id="description">{{ old('description') }}</textarea>
-                                {{-- <textarea name="description" id="post" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror" placeholder="Enter Room Description">{{ old('post') }}</textarea> --}}
+                                @error('description')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">

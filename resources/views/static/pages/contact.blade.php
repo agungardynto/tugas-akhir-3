@@ -5,25 +5,23 @@
         <div class="row justify-content-between">
             <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12">
                 <h3 style="color: var(--pink);">Contact Info</h3>
-                <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quam dolor
-                    molestiae,
-                    aspernatur doloremque omnis dolore delectus.</p>
+                <p class="mt-4">{{ $contact->message }}</p>
                 <table cellpadding="10">
                     <tr valign="top">
                         <td>Address:</td>
-                        <td>856 Cordia Extension Apt. 356, Lake, US</td>
+                        <td>{{ $contact->address }}</td>
                     </tr>
                     <tr valign="top">
                         <td>Phone:</td>
-                        <td>(12) 345 67890</td>
+                        <td>{{ $contact->phone }}</td>
                     </tr>
                     <tr valign="top">
                         <td>Email:</td>
-                        <td>example@example.example</td>
+                        <td>{{ $contact->email }}</td>
                     </tr>
                     <tr valign="top">
                         <td>Fax:</td>
-                        <td>+(12) 345 67890</td>
+                        <td>+{{ $contact->fax }}</td>
                     </tr>
                 </table>
             </div>

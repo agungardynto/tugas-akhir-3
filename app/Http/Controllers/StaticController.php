@@ -3,31 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class StaticController extends Controller
 {
+    public function __construct() {
+        $this->contact = Contact::where('id', 1)->first();
+    }
     public function home() {
         return view('static.pages.home', [
-            'room' => Room::orderBy('id', 'desc')->paginate(4)
+            'room' => Room::orderBy('id', 'desc')->paginate(4),
+            'contact' => $this->contact
         ]);
     }
 
     public function rooms() {
         return view('static.pages.rooms', [
-            'room' => Room::orderBy('id', 'desc')->paginate(6)
+            'room' => Room::orderBy('id', 'desc')->paginate(6),
+            'contact' => $this->contact
         ]);
     }
 
     public function contact() {
-        return view('static.pages.contact');
+        return view('static.pages.contact', [
+            'contact' => $this->contact
+        ]);
     }
 
     public function droom($slug) {
         $room = Room::where('slug', $slug)->first();
-        return view('static.pages.room_detail', compact('room'));
+        return view('static.pages.room_detail', [
+            'room' => $room,
+            'contact' => $this->contact
+        ]);
     }
 
     public function booking(Request $request, $slug) {

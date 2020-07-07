@@ -8,16 +8,22 @@
         .custom-file-label {
             box-shadow: none !important;
         }
+        .ck-editor__editable_inline {
+            height: 200px;
+            width: 100%;
+        }
     </style>
 @endpush
 @push('js')
 <script src="{{ asset('js/admin/select2.min.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     $(document).ready(function () {
         bsCustomFileInput.init();
         $(".tags").select2({
             placeholder: "Select a tag"
         });
+        ClassicEditor.create(document.querySelector('#post'));
     });
 </script>
 @endpush
@@ -41,8 +47,12 @@
                     </div>
                     <div class="form-group">
                         <label for="post">Blog Posts</label>
-                        <textarea name="post" id="post" cols="30" rows="10" class="form-control @error('post') is-invalid @enderror"
-                            placeholder="Enter Blog Post">{{ old('post') }}</textarea>
+                        {{-- <textarea name="post" id="post" cols="30" rows="10" class="form-control @error('post') is-invalid @enderror"
+                            placeholder="Enter Blog Post">{{ old('post') }}</textarea> --}}
+                        <textarea name="post" id="post">{{ old('post') }}</textarea>
+                        @error('post')
+                            {{ $message }}
+                        @enderror
                     </div>
                     <div class="form-group">
                         <select class="tags js-states form-control" name="tag[]" multiple="multiple">
