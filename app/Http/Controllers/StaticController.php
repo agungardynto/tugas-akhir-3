@@ -51,9 +51,9 @@ class StaticController extends Controller
             'guest' => 'required|numeric|digits_between:1,2'
         ]);
         $status = null;
-        if (strtotime($request->check_in) < time() || strtotime($request->check_out) < time()) {
+        if (strtotime($request->check_in) < time()) {
             $status = 0;
-        } elseif (strtotime($request->check_in) < strtotime($request->check_out)) {
+        } elseif (strtotime($request->check_in) > strtotime($request->check_out)) {
             $status = 0;
         } else {
             $status = 1;
@@ -64,7 +64,7 @@ class StaticController extends Controller
             'check_in' => $validator['check_in'],
             'check_out' => $validator['check_out'],
             'guest' => $validator['guest'],
-            'code' => rand(00000001, 99999999) + Auth::user()->id,
+            'code' => rand(000001, 999999) + Auth::user()->id,
             'status' => $status,
             'created_at' => date(now()),
             'updated_at' => date(now())
@@ -86,9 +86,5 @@ class StaticController extends Controller
             'updated_at' => date(now())
         ]);
         return redirect()->route('contact');
-    }
-
-    public function faq() {
-
     }
 }

@@ -47,7 +47,7 @@ Auth::routes();
 
 // Route::get('/test', function(){ echo time(). '<br>' .strtotime(now()); });
 // Route::get('/barcode', function() { 
-//     echo '<img src="data:image/png;base64,' . DNS2D::getBarcodePNG('4', 'QRCODE', 10,10) . '" alt="barcode"   />'; 
+//     echo '<img src="data:image/png;base64,' . DNS2D::getBarcodePNG('412398192', 'QRCODE', 5,5) . '" alt="barcode"   />'; 
 //     echo DNS2D::getBarcodeHTML('4445645656', 'QRCODE');
 //     echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('443', 'C39+',3,33,array(1,1,1), true) . '" alt="barcode"   />';
 //     echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+',3,33,array(205,21,24)) . '" alt="barcode"   />';

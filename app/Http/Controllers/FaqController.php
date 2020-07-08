@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Faq;
 use Illuminate\Http\Request;
+use App\Http\Requests\Faq as FaqRequest;
 
 class FaqController extends Controller
 {
@@ -14,7 +15,10 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages.faq.index', [
+            'title' => 'Frequently Asked Question',
+            'faq' => Faq::all()
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -35,7 +39,7 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -46,7 +50,7 @@ class FaqController extends Controller
      */
     public function show(Faq $faq)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -57,7 +61,7 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -67,9 +71,10 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(FaqRequest $request, Faq $faq)
     {
-        //
+        $faq->update($request->all());
+        return redirect()->route('faq.index');
     }
 
     /**
@@ -80,6 +85,6 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
+        return abort(404);
     }
 }
