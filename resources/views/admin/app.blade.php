@@ -16,31 +16,16 @@
 <body>
     <div class="dashboard-main-wrapper">
         @include('admin.include.header')
+        
         @include('admin.include.sidebar')
+        
         <div class="dashboard-wrapper">
             <div class="container-fluid  dashboard-content">
-                <!-- <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h3 class="mb-2">Sales Dashboard Template </h3>
-                            <p class="pageheader-text">Lorem ipsum dolor sit ametllam fermentum ipsum eu porta
-                                consectetur adipiscing elit.Nullam vehicula nulla ut egestas rhoncus.</p>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a>
-                                        </li>
-                                        <li class="breadcrumb-item active" aria-current="page">Sales Dashboard Template
-                                        </li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 @yield('content')
+
             </div>
             @include('admin.include.footer')
+            
         </div>
     </div>
     <script src="{{ asset('js/admin/jquery-3.3.1.min.js') }}"></script>

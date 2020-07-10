@@ -24,7 +24,7 @@
                     <tbody>
                         @forelse ($contact as $contact_us)
                         <tr>
-                            <th class="text-center">
+                            <th class="text-center" style="width: 50px">
                                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#contact-{{ $contact_us->id }}">
                                     <i class="fas fa-eye"></i>
                                 </button>
@@ -84,7 +84,7 @@
                     <tbody>
                         @forelse ($feed as $feeds)
                         <tr>
-                            <th class="text-center">
+                            <th class="text-center" style="width: 50px">
                                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#feed-{{ $feeds->id }}">
                                     <i class="fas fa-eye"></i>
                                 </button>

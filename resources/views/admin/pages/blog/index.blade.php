@@ -26,7 +26,7 @@
                     <tbody>
                         @forelse ($data_blog as $blog_item)
                         <tr>
-                            <th class="text-center"><a href="#" class="badge badge-info"><i class="fas fa-eye"></i></a></th>
+                            <th class="text-center" style="width: 50px"><a href="#" class="badge badge-info"><i class="fas fa-eye"></i></a></th>
                             <td class="text-nowrap" style="max-width: 200px; overflow-x: hidden">{{ $blog_item->title }}</td>
                             <td class="text-nowrap" style="max-width: 200px; overflow-x: hidden">{{ $blog_item->post }}</td>
                             <td>

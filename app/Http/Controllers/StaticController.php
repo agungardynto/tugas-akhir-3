@@ -14,6 +14,7 @@ class StaticController extends Controller
     public function __construct() {
         $this->contact = Contact::where('id', 1)->first();
     }
+    
     public function home() {
         return view('static.pages.home', [
             'room' => Room::orderBy('id', 'desc')->paginate(4),
@@ -37,6 +38,7 @@ class StaticController extends Controller
 
     public function droom($slug) {
         $room = Room::where('slug', $slug)->first();
+        // dd($room->view_count + 1);
         return view('static.pages.room_detail', [
             'room' => $room,
             'contact' => $this->contact

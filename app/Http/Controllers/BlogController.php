@@ -66,7 +66,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -77,7 +77,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -100,6 +100,6 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        return abort(404);
     }
 }

@@ -18,7 +18,7 @@
         @include('user.include.header')
         @include('user.include.sidebar')
         <div class="dashboard-wrapper">
-            <div class="container-fluid  dashboard-content">
+            <div class="container-fluid dashboard-content">
                 @yield('content')
             </div>
             @include('user.include.footer')

@@ -12,7 +12,7 @@ class Room extends Model
         return $this->belongsToMany(Service::class, 'room_service', 'room_id', 'service_id')->withTimestamps();
     }
 
-    public function user() {
-        return $this->belongsToMany(User::class, 'booking', 'user_id', 'room_id');
+    public function booking() {
+        return $this->hasMany(Booking::class, 'room_id', 'id');
     }
 }

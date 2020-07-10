@@ -24,7 +24,7 @@ class Service extends FormRequest
     public function rules()
     {
         return [
-            'service' => 'required|min:4'
+            'service' => 'required|min:2|unique:services,service'
         ];
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Service;
+use App\Booking;
 use Illuminate\Http\Request;
-use App\Http\Requests\Service as ServiceRequest;
 
-class ServiceController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return abort(404);
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return abort(404);
+        //
     }
 
     /**
@@ -34,55 +33,53 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceRequest $request)
+    public function store(Request $request)
     {
-        Service::create($request->all());
-        return redirect()->route('room.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Booking $booking)
     {
-        return abort(404);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Booking $booking)
     {
-        return abort(404);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Service  $service
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceRequest $request, Service $service)
+    public function update(Request $request, Booking $booking)
     {
-        $service->update($request->all());
-        return redirect()->route('room.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Booking $booking)
     {
-        return abort(404);
+        //
     }
 }
