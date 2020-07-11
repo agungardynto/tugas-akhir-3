@@ -4,7 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\DB;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,12 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        // $schedule->call(function () {
-        //     DB::table('booking')->select('*')->where(DB::raw('datediff(current_date(), check_out)'), '>=', 1)->update([
-        //         'status' => '0'
-        //     ]);
-        // })->everyMinute();
+        $schedule->command('command:expired')->daily();
     }
 
     /**
