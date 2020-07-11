@@ -12,10 +12,18 @@ use App\User;
 class UserController extends Controller
 {
     public function dashboard() {
-        $booking = DB::table('booking')->where('user_id', Auth::user()->id)->get();
+        $booking = DB::table('booking')->where([
+            ['user_id', Auth::user()->id],
+            ['status', '>=', 1]
+        ])->orderBy('id', 'desc')->get();
+        $expired = DB::table('booking')->where([
+            ['user_id', Auth::user()->id],
+            ['status', 0]
+        ])->orderBy('id', 'desc')->get();
         return view('user.pages.dashboard', [
             'title' => 'Dashboard',
-            'booking' => $booking
+            'booking' => $booking,
+            'expired' => $expired
         ]);
     }
 

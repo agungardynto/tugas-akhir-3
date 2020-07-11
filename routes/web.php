@@ -31,6 +31,11 @@ Route::group(['middleware' => ['auth', 'checkadm']], function () {
         Route::resource('service', 'ServiceController');
         Route::resource('contact', 'ContactController');
         Route::resource('faq', 'FaqController');
+        Route::group(['prefix' => 'booking'], function () {
+            Route::get('/', 'BookingController@index')->name('booking.index');
+            Route::post('check', 'BookingController@show')->name('booking.show');
+            Route::patch('{code}', 'BookingController@update')->name('booking.update');
+        });
     });    
 });
 
@@ -45,7 +50,7 @@ Route::group(['middleware' => ['auth', 'checkusr']], function () {
 
 Auth::routes();
 
-// Route::get('/test', function(){ echo time(). '<br>' .strtotime(now()); });
+// Route::get('/test', function(){ echo time(). '<br>' .strtotime(now()). '<br>' .date(now()); });
 // Route::get('/barcode', function() { 
 //     echo '<img src="data:image/png;base64,' . DNS2D::getBarcodePNG('412398192', 'QRCODE', 5,5) . '" alt="barcode"   />'; 
 //     echo DNS2D::getBarcodeHTML('4445645656', 'QRCODE');

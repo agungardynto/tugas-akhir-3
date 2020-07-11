@@ -14,7 +14,9 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pages.booking.check', [
+            'title' => 'Check Booking'
+        ]);
     }
 
     /**
@@ -44,9 +46,13 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(Booking $booking)
+    public function show(Request $request)
     {
-        //
+        $code = Booking::where('code', $request->code)->first();
+        return view('admin.pages.booking.result', [
+            'title' => $code->code,
+            'res' => $code
+        ]);
     }
 
     /**
@@ -67,9 +73,13 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, $code)
     {
-        //
+        $id_booking = Booking::where('code', $code)->first();
+        $id_booking->update([
+            'status' => 2
+        ]);
+        return redirect()->route('booking.index');
     }
 
     /**

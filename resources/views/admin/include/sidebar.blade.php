@@ -29,6 +29,9 @@
                     <li class="nav-item ">
                         <a class="nav-link @yield('faq')" href="{{ route('faq.index') }}"><i class="fas fa-fw fa-flask"></i>Frequently Asked Question</a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link @yield('booking')" href="{{ route('booking.index') }}"><i class="fas fa-fw fa-bookmark"></i>Check Booking</a>
+                    </li>
                 </ul>
             </div>
         </nav>
