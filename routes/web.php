@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'StaticController@home')->name('home');
 Route::get('rooms', 'StaticController@rooms')->name('rooms');
-Route::post('rooms/{slug}', 'StaticController@booking')->name('booking');
 Route::get('rooms/{slug}', 'StaticController@droom')->name('detail_room');
+Route::post('rooms/{slug}', 'StaticController@booking')->name('booking');
+Route::get('blog', 'StaticController@blog')->name('blog');
+Route::get('blog/{slug}', 'StaticController@dblog')->name('detail_blog');
 Route::get('contact', 'StaticController@contact')->name('contact');
 Route::post('contact', 'StaticController@send_message');
 Route::post('faq', 'StaticController@faq');

@@ -58,7 +58,7 @@
                                     <td class="r-o">Services:</td>
                                     <td>
                                         @foreach ($room->service as $services)
-                                        {{ $services->service }},
+                                        <span class="badge badge-primary">{{ $services->service }}</span>
                                         @endforeach
                                     </td>
                                 </tr>
@@ -75,6 +75,7 @@
                     <h3>Your Reservation</h3>
                     <a href="{{ route('register') }}" class="btn btn-block btn-secondary">Register</a>
                     @else
+                    @if (Auth::user()->role == 2)
                     <h3>Your Reservation</h3>
                     <form action="{{ action('StaticController@booking', $room->slug) }}" method="post">
                         @csrf
@@ -98,6 +99,7 @@
                         </div>
                         <button type="submit">Booking Now</button>
                     </form>
+                    @endif
                     @endguest
                 </div>
             </div>

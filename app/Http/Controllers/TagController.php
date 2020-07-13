@@ -15,7 +15,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -25,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -48,7 +48,7 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -59,7 +59,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -71,7 +71,7 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -82,6 +82,6 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        return abort(404);
     }
 }

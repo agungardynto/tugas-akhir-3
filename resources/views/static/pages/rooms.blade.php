@@ -1,4 +1,7 @@
 @extends('static.app')
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/custom-style-pagination.css') }}" type="text/css">
+@endsection
 @section('content')
 <section id="rooms" class="my-100">
     <div class="container">
@@ -12,7 +15,7 @@
             </div>
         </div>
         <div class="row">
-            @forelse ($room as $rooms)
+            @foreach ($room as $rooms)
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-4">
                 <div class="card">
                     <img src="{{ Storage::url($rooms->thumbnail) }}" class="card-img-top rounded-0" alt="screen-{{ $rooms->id }}">
@@ -32,7 +35,7 @@
                                 <td>Services:</td>
                                 <td>
                                     @foreach ($rooms->service as $services)
-                                    {{ $services->service }},
+                                    <span class="badge badge-primary">{{ $services->service }}</span>
                                     @endforeach
                                 </td>
                             </tr>
@@ -41,18 +44,13 @@
                             detail</a>
                     </div>
                 </div>
-            </div> 
-            @empty
-            <div class="col-12">
-                <h3 class="text-center">Room tidak ditemukan</h3>
             </div>
-            @endforelse
+            @endforeach
         </div>
-        <div class="iteration">
-            <a href="#prev">&LeftArrow;</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#next">&rightarrow;</a>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                {{ $room->links() }}
+            </div>
         </div>
     </div>
 </section>

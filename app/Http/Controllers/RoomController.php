@@ -21,7 +21,7 @@ class RoomController extends Controller
         return view('admin.pages.room.index', [
             'title' => 'Room',
             'room' => Room::all()->sortByDesc('id'),
-            'service' => Service::all()->sortByDesc('id')
+            'service' => Service::all()
         ]);
     }
 

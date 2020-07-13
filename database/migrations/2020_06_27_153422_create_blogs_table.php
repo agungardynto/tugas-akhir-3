@@ -19,6 +19,8 @@ class CreateBlogsTable extends Migration
             $table->text('post');
             $table->string('thumbnail');
             $table->string('image_post');
+            $table->string('slug')->unique();
+            $table->bigInteger('view');
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@
                         <span>{{ $contact->email }}</span>
                     </div>
                     <div class="contact-social">
-                        <a href="#" class="mr-3">
+                        {{-- <a href="#" class="mr-3">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="mr-3">
@@ -23,7 +23,7 @@
                         </a>
                         <a href="#" class="mr-3">
                             <i class="fab fa-instagram"></i>
-                        </a>
+                        </a> --}}
                         <a href="{{ route('rooms') }}" class="text-uppercase booking-now mr-0">booking now</a>
                         @guest
                         <a href="{{ route('login') }}" class="text-uppercase booking-now bg-primary mx-0">login</a>
@@ -62,9 +62,8 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="{{ route('home') }}">Home</a>
                     <a class="nav-item nav-link" href="{{ route('rooms') }}">Rooms</a>
-                    <a class="nav-item nav-link" href="#">Blog & Event</a>
+                    <a class="nav-item nav-link" href="{{ route('blog') }}">Blog & Event</a>
                     <a class="nav-item nav-link" href="{{ route('contact') }}">Contact</a>
-                    <a class="nav-item nav-link" href="#">FAQ</a>
                 </div>
             </div>
         </div>

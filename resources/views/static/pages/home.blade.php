@@ -1,4 +1,10 @@
 @extends('static.app')
+@section('js')
+<script>
+    document.getElementById('blog-4').classList.remove('col-xl-4', 'col-lg-4')
+    document.getElementById('blog-4').classList.add('col-xl-8', 'col-lg-8')
+</script>
+@endsection
 @section('content')
 <div id="indicators" class="carousel slide carousel-fade position-relative" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -20,7 +26,7 @@
                         international
                         travel and for
                         finding low-priced hotel rooms.</p>
-                    <a href="#" class="text-uppercase">discover now</a>
+                    <a href="{{ url('rooms') }}" class="text-uppercase">discover now</a>
                 </div>
             </div>
         </div>
@@ -58,62 +64,16 @@
         </div>
     </div>
 </section>
-<hr class="my-100">
-<section id="services">
+<hr class="my-5">
+<section id="recommended-rooms" class="mt-5">
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h6 class="text-uppercase mb-3">about us</h6>
-                <h3 class="mb-5">Intercontinental LA Westlake Hotel</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 py-5 services text-center">
-                <i class="fas fa-map-signs mb-3"></i>
-                <h5>Travel Plan</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore
-                    et dolore magna.</p>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 py-5 services text-center">
-                <i class="fas fa-person-booth mb-3"></i>
-                <h5>Catering Service</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore
-                    et dolore magna.</p>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 py-5 services text-center">
-                <i class="fas fa-baby-carriage mb-3"></i>
-                <h5>Babysitting</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore
-                    et dolore magna.</p>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 py-5 services text-center">
-                <i class="fas fa-tshirt mb-3"></i>
-                <h5>Laundry</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore
-                    et dolore magna.</p>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 py-5 services text-center">
-                <i class="fas fa-clock mb-3"></i>
-                <h5>Hire Driver</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore
-                    et dolore magna.</p>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 py-5 services text-center">
-                <i class="fas fa-glass-cheers mb-3"></i>
-                <h5>Bar & Drink</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore
-                    et dolore magna.</p>
+                <h6 class="text-uppercase mb-3">Rooms</h6>
+                <h3 class="mb-5">Recommended Room</h3>
             </div>
         </div>
     </div>
-</section>
-<section id="recommended-rooms" class="mt-5">
     <div class="container-fluid">
         @foreach ($room as $rooms)
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mt-3">
@@ -257,41 +217,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 blog mt-4 position-relative">
-                <img src="{{ asset('img/static/blog-events/gerson-repreza-CepDpEiALqM-unsplash.jpg') }}">
+            @foreach ($blog as $blogs)
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 blog mt-4 position-relative" id="blog-{{ $loop->iteration }}">
+                <img src="{{ Storage::url($blogs->thumbnail) }}" style="height: 500px">
                 <div class="label-blog">
-                    <span class="text-uppercase">travel trip</span>
-                    <a href="#" class="text-capitalize">tremblant in canada</a>
+                    @foreach ($blogs->tag->take(1) as $tags)
+                    <span class="text-uppercase">{{ $tags->tag }}</span>
+                    @endforeach
+                    <a href="{{ route('detail_blog', $blogs->slug) }}" class="text-capitalize">{{ $blogs->title }}</a>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 blog mt-4 position-relative">
-                <img src="{{ asset('img/static/blog-events/sara-dubler-Koei_7yYtIo-unsplash.jpg') }}">
-                <div class="label-blog">
-                    <span class="text-uppercase">camping</span>
-                    <a href="#" class="text-capitalize">choosing a static caravan</a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 blog mt-4 position-relative">
-                <img src="{{ asset('img/static/blog-events/taylor-simpson-8NL7y_DHF7w-unsplash.jpg') }}">
-                <div class="label-blog">
-                    <span class="text-uppercase">event</span>
-                    <a href="#" class="text-capitalize">copper canyon</a>
-                </div>
-            </div>
-            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog mt-4 position-relative overflow-hidden">
-                <img src="{{ asset('img/static/blog-events/claudia-altamimi-dEGNA6jIcBM-unsplash.jpg') }}">
-                <div class="label-blog">
-                    <span class="text-uppercase">event</span>
-                    <a href="#" class="text-capitalize">trip to iqaluit in nunavut a canadian arctic city</a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 blog mt-4 position-relative">
-                <img src="{{ asset('img/static/blog-events/taylor-simpson-GdwGZbU8PgI-unsplash.jpg') }}">
-                <div class="label-blog">
-                    <span class="text-uppercase">travel</span>
-                    <a href="#" class="text-capitalize">traveling to barcelona</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

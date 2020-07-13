@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin/fontawesome/css/fontawesome-all.css') }}">
     <title>{{ env('APP_NAME') }} - {{ $title }}</title>
     @stack('css')
+    @yield('css')
 </head>
 
 <body>
@@ -34,6 +35,7 @@
     <script src="{{ asset('js/admin/bs-custom-file-input.min.js') }}"></script>
     <script src="{{ asset('js/admin/main-js.js') }}"></script>
     @stack('js')
+    @yield('js')
 </body>
 
 </html>

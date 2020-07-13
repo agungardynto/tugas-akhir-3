@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\Blog;
 use App\Contact;
 use App\Faq;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class StaticController extends Controller
     public function home() {
         return view('static.pages.home', [
             'room' => Room::orderBy('id', 'desc')->paginate(4),
+            'blog' => Blog::orderBy('id', 'desc')->take(5)->get(),
             'contact' => $this->contact,
             'faq' => Faq::all()
         ]);
@@ -30,6 +32,13 @@ class StaticController extends Controller
         ]);
     }
 
+    public function blog() {
+        return view('static.pages.blog', [
+            'blog' => Blog::orderBy('id', 'desc')->paginate(6),
+            'contact' => $this->contact
+        ]);
+    }
+
     public function contact() {
         return view('static.pages.contact', [
             'contact' => $this->contact
@@ -38,11 +47,27 @@ class StaticController extends Controller
 
     public function droom($slug) {
         $room = Room::where('slug', $slug)->first();
-        // dd($room->view_count + 1);
-        return view('static.pages.room_detail', [
-            'room' => $room,
-            'contact' => $this->contact
-        ]);
+        if ($room !== null) {
+            return view('static.pages.room_detail', [
+                'room' => $room,
+                'contact' => $this->contact
+            ]);
+        } else {
+            return abort(404);
+        }
+    }
+
+    public function dblog($slug) {
+        $blog = Blog::where('slug', $slug)->first();
+        if ($blog !== null) {
+            $blog->update(['view' => $blog->view + 1]);
+            return view('static.pages.blog_detail', [
+                'blog' => $blog,
+                'contact' => $this->contact
+            ]);
+        } else {
+            return abort(404);
+        }
     }
 
     public function booking(Request $request, $slug) {

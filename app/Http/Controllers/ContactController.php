@@ -29,7 +29,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -40,7 +40,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -51,7 +51,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -62,7 +62,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -74,7 +74,15 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $validator = $request->validate([
+            'message' => 'required',
+            'address' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'fax' => 'required'
+        ]);
+        $contact->update($validator);
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -85,6 +93,6 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        return abort(404);
     }
 }
