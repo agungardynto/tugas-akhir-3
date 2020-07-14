@@ -7,7 +7,7 @@ window.onscroll = () => {
             }, 900 * (index + 1));
         })
     }
-    if (y >= 3485) {
+    if (y >= 3285) {
         document.querySelectorAll('.label-blog').forEach((element, index) => {
             setTimeout(() => {
                 element.childNodes[1].classList.add('flash');

@@ -5,7 +5,7 @@
                 <a href="/" class="footer-brand">{{ env('APP_NAME') }}<span>.</span></a>
                 <p>We inspire and reach millions of travelers across 90 local websites</p>
                 <div class="social-contact mb-3">
-                    <a href="#" class="mr-3">
+                    <a href="https://api.whatsapp.com/send?phone=+6282179099557&text=Isi%20pesan" target="_blank" class="mr-3">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a href="#" class="mr-3">

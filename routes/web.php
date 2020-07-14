@@ -22,6 +22,7 @@ Route::get('blog/{slug}', 'StaticController@dblog')->name('detail_blog');
 Route::get('contact', 'StaticController@contact')->name('contact');
 Route::post('contact', 'StaticController@send_message');
 Route::post('faq', 'StaticController@faq');
+Route::post('likes', 'StaticController@likes');
 
 Route::group(['middleware' => ['auth', 'checkadm']], function () {
     Route::group(['prefix' => 'admin'], function () {

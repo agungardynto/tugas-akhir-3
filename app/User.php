@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function booking() {
         return $this->hasMany(Booking::class, 'user_id', 'id');
     }
+
+    public function room() {
+        return $this->belongsToMany(Room::class, 'like', 'user_id', 'room_id')->withTimestamps();
+    }
 }

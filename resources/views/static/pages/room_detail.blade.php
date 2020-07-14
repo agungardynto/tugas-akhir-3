@@ -5,6 +5,27 @@
     <link rel="stylesheet" href="{{ asset('sona/css/nice-select.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('sona/css/jquery-ui.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('sona/css/style.css') }}" type="text/css">
+    <style>
+        .fa-heart {
+            transform: scale(1);
+            animation: scale .5s ease 0s 1;
+        }
+        .count {
+            font-size: 22px;
+            color: #333;
+        }
+        @keyframes scale {
+            0% {
+                transform: scale(1)
+            }
+            50% {
+                transform: scale(0.5)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+    </style>
 @endsection
 @section('js')
 <script src="{{ asset('sona/js/jquery.magnific-popup.min.js') }}"></script>
@@ -13,6 +34,30 @@
     <script src="{{ asset('sona/js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('sona/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('sona/js/main.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.fa-heart').attr('onclick', 'like()')
+        })
+        function axiosPost() {
+            axios.post('/likes', {
+                like: {{$room->id}}
+            }).then(result => {
+                
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+        function like() {
+            $('.count').text(parseInt($('.count').text()) + 1)
+            $('.fa-heart').attr({'data-prefix':'far', 'onclick':'dislike()'})
+            axiosPost()
+        }
+        function dislike() {
+            $('.count').text(parseInt($('.count').text()) - 1)
+            $('.fa-heart').attr({'data-prefix':'fas', 'onclick':'like()'})
+            axiosPost()
+        }
+    </script>
 @endsection
 @section('content')
 <div class="breadcrumb-section">
@@ -71,12 +116,13 @@
             </div>
             <div class="col-lg-4">
                 <div class="room-booking">
+                    <span><i class="fas fa-2x fa-heart text-danger"></i></span><span class="count ml-2">{{ $room->user()->count() }}</span>
                     @guest
-                    <h3>Your Reservation</h3>
+                    <h3 class="mt-5">Your Reservation</h3>
                     <a href="{{ route('register') }}" class="btn btn-block btn-secondary">Register</a>
                     @else
                     @if (Auth::user()->role == 2)
-                    <h3>Your Reservation</h3>
+                    <h3 class="mt-5">Your Reservation</h3>
                     <form action="{{ action('StaticController@booking', $room->slug) }}" method="post">
                         @csrf
                         <div class="check-date">

@@ -15,7 +15,7 @@
     @include('static.include.header')
     @yield('content')
     @include('static.include.footer')
-    <script src="{{ asset('js/static/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/static/popper.min.js') }}"></script>
     <script src="{{ asset('js/static/bootstrap.js') }}"></script>
     <script src="{{ asset('js/static/app.js') }}"></script>

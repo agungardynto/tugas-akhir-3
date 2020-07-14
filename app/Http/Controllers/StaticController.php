@@ -114,4 +114,19 @@ class StaticController extends Controller
         ]);
         return redirect()->route('contact');
     }
+
+    public function likes(Request $request) {
+        $chk = DB::table('like')->where([
+            ['user_id', Auth::user()->id],
+            ['room_id', $request->like]
+        ]);
+        // return response()->json([
+        //     'test' => $chk
+        // ]);
+        if ($chk->first() !== null) {
+            $chk->delete();
+        } else {
+            Auth::user()->room()->attach($request->like);
+        }
+    }
 }
