@@ -47,10 +47,18 @@ class StaticController extends Controller
 
     public function droom($slug) {
         $room = Room::where('slug', $slug)->first();
+        $chklike = null;
         if ($room !== null) {
+            if (Auth::user()) {
+                $chklike = DB::table('like')->where([
+                    ['user_id', Auth::user()->id],
+                    ['room_id', $room->id]
+                ])->first();
+            }
             return view('static.pages.room_detail', [
                 'room' => $room,
-                'contact' => $this->contact
+                'contact' => $this->contact,
+                'chklike' => $chklike
             ]);
         } else {
             return abort(404);
@@ -120,9 +128,6 @@ class StaticController extends Controller
             ['user_id', Auth::user()->id],
             ['room_id', $request->like]
         ]);
-        // return response()->json([
-        //     'test' => $chk
-        // ]);
         if ($chk->first() !== null) {
             $chk->delete();
         } else {

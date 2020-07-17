@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <form class="splash-container" method="POST" action="{{ route('register') }}">
+    <form id="register" class="splash-container" method="POST" action="{{ route('register') }}">
         @csrf
 
         <div class="card">
@@ -38,19 +38,19 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
-                            <input class="form-control form-control-lg @error('name') is-invalid @enderror" type="text" name="name" placeholder="Full Name" autocomplete="off" value="{{ old('name') }}">
+                            <input @error('name') data-toggle="tooltip" data-placement="left" title="{{ $message }}" @enderror class="form-control form-control-lg @error('name') is-invalid @enderror" type="text" name="name" placeholder="Full Name" autocomplete="off" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email Address" autocomplete="off" value="{{ old('email') }}">
+                            <input @error('email') data-toggle="tooltip" data-placement="right" title="{{ $message }}" @enderror type="text" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email Address" autocomplete="off" value="{{ old('email') }}">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
-                            <select name="gender" class="form-control form-control-lg @error('gender') is-invalid @enderror">
+                            <select name="gender" @error('gender') data-toggle="tooltip" data-placement="left" title="{{ $message }}" @enderror class="form-control form-control-lg @error('gender') is-invalid @enderror">
                                 <option value="" selected hidden>Select Gender</option>
                                 <option value="L" {{ old('gender') == 'L' ? 'selected' : '' }}>Male</option>
                                 <option value="P" {{ old('gender') == 'P' ? 'selected' : '' }}>Female</option>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
-                            <input type="text" name="phone_number" class="form-control form-control-lg @error('name') is-invalid @enderror" placeholder="Phone Number e.g 082123456789" autocomplete="off" value="{{ old('phone_number') }}">
+                            <input type="text" @error('phone_number') data-toggle="tooltip" data-placement="right" title="{{ $message }}" @enderror name="phone_number" class="form-control form-control-lg @error('phone_number') is-invalid @enderror" placeholder="Phone Number e.g 082123456789" autocomplete="off" value="{{ old('phone_number') }}">
                         </div>
                     </div>
                 </div>
@@ -67,11 +67,11 @@
                     <textarea name="address" class="form-control form-control-lg" cols="30" rows="3" placeholder="Place Address">{{ old('address') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Password" autocomplete="off">
+                    <input @error('password') data-toggle="tooltip" data-placement="right" title="{{ $message }}" @enderror type="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Password" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
+                        <input class="custom-control-input terms @error('*') is-invalid @enderror" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
                     </label>
                 </div>
                 <div class="form-group pt-2">
@@ -84,6 +84,10 @@
         </div>
     </form>
 </body>
-
+<script src="{{ asset('js/static/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('js/static/popper.min.js') }}"></script>
+<script src="{{ asset('js/static/bootstrap.js') }}"></script>
+<script src="{{ asset('js/isValid.js') }}"></script>
+<script src="{{ asset('js/tos.valid.js') }}"></script>
  
 </html>

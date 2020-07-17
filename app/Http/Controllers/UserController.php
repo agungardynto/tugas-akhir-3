@@ -52,4 +52,18 @@ class UserController extends Controller
         Auth::user()->update($validator);
         return redirect()->route('dashboard_user');
     }
+
+    public function send_message(Request $request) {
+        $validator = $request->validate([
+            'message' => 'required'
+        ]);
+        DB::table('feeds')->insert([
+            'name' => Auth::user()->name,
+            'email' => Auth::user()->email,
+            'message' => $validator['message'],
+            'created_at' => date(now()),
+            'updated_at' => date(now())
+        ]);
+        return redirect()->route('dashboard_user');
+    }
 }

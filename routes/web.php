@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth', 'checkusr']], function () {
         Route::get('dashboard', 'UserController@dashboard')->name('dashboard_user');
         Route::get('profile', 'UserController@profile')->name('profile_user');
         Route::patch('profile', 'UserController@update_profile');
+        Route::post('message', 'UserController@send_message');
     });
 });
 

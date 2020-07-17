@@ -57,6 +57,17 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
             'foto' => ['file', 'image', 'mimes:jpg,jpeg,png,bmp', 'max:2048'],
+        ], [
+            'name.required' => 'Nama tidak boleh kosong',
+            'gender.required' => 'Mohon pilih jenis kelamin',
+            'phone_number.required' => 'Nomor telepon tidak boleh kosong',
+            'phone_number.numeric' => 'Hanya format angka yang diperbolehkan',
+            'phone_number.digits_between' => 'Panjang nomor telepon antara 12 sampai 15',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.email' => 'Format email tidak valid',
+            'email.unique' => 'Email :input telah terdaftar',
+            'password.required' => 'Password tidak boleh kosong',
+            'password.min' => 'Password minimal :min karakter',
         ]);
     }
 

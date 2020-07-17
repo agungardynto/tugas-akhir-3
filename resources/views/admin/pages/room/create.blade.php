@@ -15,6 +15,7 @@
     </style>
 @endpush
 @push('js')
+<script src="{{ asset('js/up.down.js') }}"></script>
 <script src="{{ asset('js/admin/select2.min.js') }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
@@ -49,13 +50,29 @@
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="size">Size Room</label>
-                                <input id="size" type="text" name="size" placeholder="Enter Room Size" value="{{ old('size') }}" autocomplete="off" class="form-control @error('size') is-invalid @enderror">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                      <button class="btn btn-primary sr-up d-flex align-items-center" type="button"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                                    </div>
+                                    <input style="text-align: center" id="size" name="size" type="text" class="form-control @error('size') is-invalid @enderror" value="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger sr-down d-flex align-items-center" type="button"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="capacity">Capacity Room</label>
-                                <input id="capacity" type="text" name="capacity" placeholder="Enter Room Capacity" value="{{ old('capacity') }}" autocomplete="off" class="form-control @error('capacity') is-invalid @enderror">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                      <button class="btn btn-primary cr-up d-flex align-items-center" type="button"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                                    </div>
+                                    <input style="text-align: center" id="capacity" type="text" name="capacity" enabled="false" class="form-control @error('capacity') is-invalid @enderror" value="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger cr-down d-flex align-items-center" type="button"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
@@ -84,14 +101,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-primary border-primary">Indonesia Rupiah (IDR)</span>
                                 </div>
-                                <input type="text" name="budget" class="form-control" placeholder="Budget">
+                                <input type="text" name="budget" class="form-control @error('budget') is-invalid @enderror" placeholder="Budget">
                             </div>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-secondary border-secondary">Image Thumbnail</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
+                                    <input type="file" required name="thumbnail" class="custom-file-input" id="thumbnail">
                                     <label class="custom-file-label" for="thumbnail" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Choose file</label>
                                 </div>
                             </div>

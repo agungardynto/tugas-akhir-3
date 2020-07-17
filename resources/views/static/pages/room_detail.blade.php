@@ -34,30 +34,7 @@
     <script src="{{ asset('sona/js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('sona/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('sona/js/main.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('.fa-heart').attr('onclick', 'like()')
-        })
-        function axiosPost() {
-            axios.post('/likes', {
-                like: {{$room->id}}
-            }).then(result => {
-                
-            }).catch(err => {
-                console.log(err)
-            })
-        }
-        function like() {
-            $('.count').text(parseInt($('.count').text()) + 1)
-            $('.fa-heart').attr({'data-prefix':'far', 'onclick':'dislike()'})
-            axiosPost()
-        }
-        function dislike() {
-            $('.count').text(parseInt($('.count').text()) - 1)
-            $('.fa-heart').attr({'data-prefix':'fas', 'onclick':'like()'})
-            axiosPost()
-        }
-    </script>
+    <script src="{{ asset('js/req.axios.js') }}"></script>
 @endsection
 @section('content')
 <div class="breadcrumb-section">
@@ -116,9 +93,17 @@
             </div>
             <div class="col-lg-4">
                 <div class="room-booking">
-                    <span><i class="fas fa-2x fa-heart text-danger"></i></span><span class="count ml-2">{{ $room->user()->count() }}</span>
+                    @auth
+                    <span>
+                        @if ($chklike !== null)
+                        <i class="far fa-2x fa-heart text-danger" onclick="dislike()"></i>
+                        @else
+                        <i class="fas fa-2x fa-heart text-danger" onclick="like()"></i>
+                        @endif    
+                    </span><span class="count ml-2" data-prefix="{{ $room->id }}">{{ $room->user()->count() }}</span>
+                    @endauth
                     @guest
-                    <h3 class="mt-5">Your Reservation</h3>
+                    <h3 @auth class="mt-5" @endauth>Your Reservation</h3>
                     <a href="{{ route('register') }}" class="btn btn-block btn-secondary">Register</a>
                     @else
                     @if (Auth::user()->role == 2)
