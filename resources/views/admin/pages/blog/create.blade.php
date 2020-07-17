@@ -47,8 +47,6 @@
                     </div>
                     <div class="form-group">
                         <label for="post">Blog Posts</label>
-                        {{-- <textarea name="post" id="post" cols="30" rows="10" class="form-control @error('post') is-invalid @enderror"
-                            placeholder="Enter Blog Post">{{ old('post') }}</textarea> --}}
                         <textarea name="post" id="post">{{ old('post') }}</textarea>
                         @error('post')
                             {{ $message }}
@@ -66,7 +64,7 @@
                             <span class="input-group-text bg-secondary border-secondary">Image Thumbnail</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" name="thumbnail" class="custom-file-input" id="thumbnail">
+                            <input type="file" required name="thumbnail" class="custom-file-input" id="thumbnail">
                             <label class="custom-file-label" for="thumbnail">Choose file</label>
                         </div>
                     </div>
@@ -75,7 +73,7 @@
                             <span class="input-group-text bg-secondary border-secondary">Image Post</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" name="image_post" class="custom-file-input" id="thumbnail">
+                            <input type="file" required name="image_post" class="custom-file-input" id="thumbnail">
                             <label class="custom-file-label" for="thumbnail">Choose file</label>
                         </div>
                     </div>
