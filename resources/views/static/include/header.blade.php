@@ -7,23 +7,11 @@
                     <span>{{ $contact->phone }}</span>
                 </div>
                 <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 head__right">
-                    <div class="email-contact">
+                    <div class="email-contact w-100">
                         <i class="fas fa-envelope mr-2"></i>
                         <span>{{ $contact->email }}</span>
                     </div>
-                    <div class="contact-social">
-                        {{-- <a href="#" class="mr-3">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="mr-3">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="mr-3">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="mr-3">
-                            <i class="fab fa-instagram"></i>
-                        </a> --}}
+                    <div class="contact-social w-100 d-flex justify-content-end">
                         <a href="{{ route('rooms') }}" class="text-uppercase booking-now mr-0">booking now</a>
                         @guest
                         <a href="{{ route('login') }}" class="text-uppercase booking-now bg-primary mx-0">login</a>

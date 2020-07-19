@@ -25,9 +25,10 @@ class StaticController extends Controller
         ]);
     }
 
-    public function rooms() {
+    public function rooms(Request $req) {
+        $room = Room::orderBy('id', 'desc')->where('title', 'like', '%'. $req->keywords .'%')->orWhere('budget', 'like', '%'. $req->keywords .'%')->paginate(6);
         return view('static.pages.rooms', [
-            'room' => Room::orderBy('id', 'desc')->paginate(6),
+            'room' => $room,
             'contact' => $this->contact
         ]);
     }
