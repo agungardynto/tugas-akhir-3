@@ -29,7 +29,7 @@
             
         </div>
     </div>
-    <script src="{{ asset('js/admin/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
     <script src="{{ asset('js/admin/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('js/admin/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('js/admin/bs-custom-file-input.min.js') }}"></script>

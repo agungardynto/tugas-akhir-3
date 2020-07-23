@@ -10,15 +10,18 @@
                 </h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('booking.show') }}" method="post">
-                    @csrf
-
-                    <div class="form-group">
-                        <label for="code">Unique Code</label>
-                        <input type="text" name="code" id="code" class="form-control" placeholder="Enter Unique Code..." autocomplete="off">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <form action="{{ route('booking.show') }}" method="post" id="shw_cks">
+                            @csrf
+        
+                            <div id="app">
+                                <qr-check></qr-check>
+                            </div>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>      
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12"></div>
+                </div>
             </div>
         </div>
     </div>

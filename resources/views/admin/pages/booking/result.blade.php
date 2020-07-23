@@ -6,7 +6,7 @@
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ Storage::url($res->room->thumbnail) }}" class="card-img p-3" style="max-height: 500px"
+                    <img src="{{ Storage::url($res->room->thumbnail) }}" class="card-img p-3" style="height: 500px"
                         alt="pic">
                 </div>
                 <div class="col-md-8">

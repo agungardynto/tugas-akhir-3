@@ -49,10 +49,14 @@ class BookingController extends Controller
     public function show(Request $request)
     {
         $code = Booking::where('code', $request->code)->first();
-        return view('admin.pages.booking.result', [
-            'title' => $code->code,
-            'res' => $code
-        ]);
+        if ($code === null) {
+            return abort(404);
+        } else {
+            return view('admin.pages.booking.result', [
+                'title' => $code->code,
+                'res' => $code
+            ]);
+        }
     }
 
     /**
@@ -63,7 +67,7 @@ class BookingController extends Controller
      */
     public function edit(Booking $booking)
     {
-        //
+        return abort(404);
     }
 
     /**

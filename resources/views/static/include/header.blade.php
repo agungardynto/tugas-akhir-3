@@ -19,7 +19,8 @@
                         <div class="navbar-nav ml-3">
                             <a class="nav-link dropdown-toggle" href="#drop" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ Storage::url(Auth::user()->foto) }}" alt="usr_img">
+                                <img src="{{ Storage::url(Auth::user()->foto) }}" alt="usr_img" class="rounded-circle">
+                                <span class="ml-1">{{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="@if (Auth::user()->role === '1')
