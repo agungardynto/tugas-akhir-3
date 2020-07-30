@@ -32,6 +32,20 @@
         </div>
     </div>
 </div>
+<section id="our-hotel" style="margin-top: 50px; margin-bottom: 50px">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 res-company">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text" style="background-color: hotpink; color: white; border-color: hotpink">Find our hotel in your area</span>
+                    </div>
+                    <input type="text" name="src" id="src-company" class="form-control" placeholder="Recipient's City" autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="about" class="mt-100">
     <div class="container">
         <div class="row">

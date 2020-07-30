@@ -6,6 +6,7 @@ use App\Room;
 use App\Blog;
 use App\Contact;
 use App\Faq;
+use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class StaticController extends Controller
         $this->contact = Contact::where('id', 1)->first();
     }
     
-    public function home() {
+    public function home(Request $req) {
         return view('static.pages.home', [
             'room' => Room::orderBy('id', 'desc')->paginate(4),
             'blog' => Blog::orderBy('id', 'desc')->take(5)->get(),
@@ -134,5 +135,11 @@ class StaticController extends Controller
         } else {
             Auth::user()->room()->attach($request->like);
         }
+    }
+
+    public function companyJson(Request $req) {
+        return response()->json([
+            'rss' => Company::where('city', 'like', '%'. $req->src .'%')->get()
+        ]);
     }
 }

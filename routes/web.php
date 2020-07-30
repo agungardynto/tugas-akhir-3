@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth', 'checkadm']], function () {
         Route::get('/', function () { return redirect()->route('dashboard_admin'); });
         Route::get('dashboard', 'AdminController@dashboard')->name('dashboard_admin');
         Route::resource('blog', 'BlogController');
+        Route::resource('company', 'CompanyController');
         Route::resource('tag', 'TagController');
         Route::resource('room', 'RoomController');
         Route::resource('service', 'ServiceController');

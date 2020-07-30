@@ -18,6 +18,9 @@
                         Features
                     </li>
                     <li class="nav-item ">
+                        <a class="nav-link @yield('company')" href="{{ route('company.index') }}"><i class="fas fa-circle-notch"></i> Company</a>
+                    </li>
+                    <li class="nav-item ">
                         <a class="nav-link @yield('room')" href="{{ route('room.index') }}"><i class="fas fa-fw fa-rocket"></i>Rooms</a>
                     </li>
                     <li class="nav-item">
